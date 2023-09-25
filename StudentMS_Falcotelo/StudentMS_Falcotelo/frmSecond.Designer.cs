@@ -29,6 +29,10 @@ namespace StudentMS_Falcotelo
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvShow = new System.Windows.Forms.DataGridView();
             this.txtfirst = new System.Windows.Forms.TextBox();
@@ -59,16 +63,53 @@ namespace StudentMS_Falcotelo
             // 
             // dgvShow
             // 
+            this.dgvShow.AllowUserToAddRows = false;
+            this.dgvShow.AllowUserToDeleteRows = false;
+            this.dgvShow.AllowUserToResizeColumns = false;
+            this.dgvShow.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SkyBlue;
+            this.dgvShow.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvShow.BackgroundColor = System.Drawing.Color.SkyBlue;
+            this.dgvShow.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShow.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.subject,
             this.btnAction});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvShow.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvShow.EnableHeadersVisualStyles = false;
+            this.dgvShow.GridColor = System.Drawing.Color.DodgerBlue;
             this.dgvShow.Location = new System.Drawing.Point(12, 265);
             this.dgvShow.Name = "dgvShow";
+            this.dgvShow.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShow.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvShow.RowHeadersWidth = 51;
             this.dgvShow.RowTemplate.Height = 24;
             this.dgvShow.Size = new System.Drawing.Size(389, 181);
             this.dgvShow.TabIndex = 1;
+            this.dgvShow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShow_CellContentClick);
+            this.dgvShow.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvShow_CellPainting);
             // 
             // txtfirst
             // 
@@ -111,32 +152,41 @@ namespace StudentMS_Falcotelo
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.Blue;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(300, 221);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(99, 38);
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.Blue;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(300, 452);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(99, 38);
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.Red;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(195, 452);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(99, 38);
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // dtpbday
@@ -178,22 +228,24 @@ namespace StudentMS_Falcotelo
             // 
             // subject
             // 
-            this.subject.HeaderText = "Subject";
+            this.subject.HeaderText = "Subject Name";
             this.subject.MinimumWidth = 6;
             this.subject.Name = "subject";
-            this.subject.Width = 125;
+            this.subject.Width = 150;
             // 
             // btnAction
             // 
             this.btnAction.HeaderText = "Action";
             this.btnAction.MinimumWidth = 6;
             this.btnAction.Name = "btnAction";
-            this.btnAction.Width = 125;
+            this.btnAction.Width = 150;
             // 
             // frmSecond
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SkyBlue;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(411, 504);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbcourse);

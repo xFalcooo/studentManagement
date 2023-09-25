@@ -10,3 +10,14 @@ C:\Users\Benedict\OneDrive\Desktop\My Project\StudentMS_Falcotelo\StudentMS_Falc
 C:\Users\Benedict\OneDrive\Desktop\My Project\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.pdb
 C:\Users\Benedict\OneDrive\Desktop\My Project\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.frmSecond.resources
 C:\Users\Benedict\OneDrive\Desktop\My Project\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.frmThird.resources
+C:\Users\Benedict\OneDrive\Documents\GitHub\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\bin\Debug\StudentMS_Falcotelo.exe.config
+C:\Users\Benedict\OneDrive\Documents\GitHub\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\bin\Debug\StudentMS_Falcotelo.exe
+C:\Users\Benedict\OneDrive\Documents\GitHub\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\bin\Debug\StudentMS_Falcotelo.pdb
+C:\Users\Benedict\OneDrive\Documents\GitHub\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.frmMain.resources
+C:\Users\Benedict\OneDrive\Documents\GitHub\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.frmSecond.resources
+C:\Users\Benedict\OneDrive\Documents\GitHub\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.frmThird.resources
+C:\Users\Benedict\OneDrive\Documents\GitHub\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.Properties.Resources.resources
+C:\Users\Benedict\OneDrive\Documents\GitHub\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.csproj.GenerateResource.cache
+C:\Users\Benedict\OneDrive\Documents\GitHub\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.csproj.CoreCompileInputs.cache
+C:\Users\Benedict\OneDrive\Documents\GitHub\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.exe
+C:\Users\Benedict\OneDrive\Documents\GitHub\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.pdb

@@ -61,5 +61,20 @@ namespace StudentMS_Falcotelo
                 second.Show();
             }
         }
+
+        private void dgvShow_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All
+                    & ~(DataGridViewPaintParts.ContentForeground));
+                var r = e.CellBounds;
+                r.Inflate(-4, -4);
+                e.Graphics.FillRectangle(Brushes.Blue, r);
+                e.Paint(e.CellBounds, DataGridViewPaintParts.ContentForeground);
+                e.Handled = true;
+            }
+        }
     }
 }

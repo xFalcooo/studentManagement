@@ -25,7 +25,7 @@ namespace StudentMS_Falcotelo
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlCommand cmdShow = new SqlCommand("select student_no AS [No.], concat(first_name, ' ', last_name) as [Student Name], course_name as Course, subject_name as Subject from tblStudent, tblCourse, tblSubject", con);
+            SqlCommand cmdShow = new SqlCommand("select student_no AS [No.], concat(first_name, ' ', last_name) as [Student Name], course_name as Course, subject_name as Subject from tblStudent, tblCourse, tblSubject;", con);
             cmdShow.ExecuteNonQuery();
             SqlDataAdapter daShow = new SqlDataAdapter(cmdShow);
             DataTable dtShow = new DataTable();
@@ -39,6 +39,7 @@ namespace StudentMS_Falcotelo
             buttonDelColumn.HeaderText = "Action";
             buttonDelColumn.Text = "DELETE";
             buttonDelColumn.UseColumnTextForButtonValue = true;
+            buttonDelColumn.FlatStyle = FlatStyle.Popup;
             dgvShow.Columns.Add(buttonDelColumn);
 
             DataGridViewButtonColumn buttonUpdColumn = new DataGridViewButtonColumn();
@@ -46,6 +47,7 @@ namespace StudentMS_Falcotelo
             buttonUpdColumn.HeaderText = "Actions";
             buttonUpdColumn.Text = "UPDATE";
             buttonUpdColumn.UseColumnTextForButtonValue = true;
+            buttonUpdColumn.FlatStyle = FlatStyle.Popup;
             dgvShow.Columns.Add(buttonUpdColumn);
         }
 
@@ -53,18 +55,27 @@ namespace StudentMS_Falcotelo
         {
             dgvShow.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvShow.AllowUserToAddRows = false;
+            
         }
 
         private void dgvShow_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgvShow.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                MessageBox.Show(dgvShow.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                string btnUpdValue = dgvShow.Rows[e.RowIndex].Cells[1].Value.ToString();
+                string idValue = dgvShow.Rows[e.RowIndex].Cells[2].Value.ToString();
+                string btnDelValue = dgvShow.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
+
             if (e.ColumnIndex == dgvShow.Columns["btnUPD"].Index && e.RowIndex >= 0)
             {
-                MessageBox.Show("cute");
+                MessageBox.Show("");
             }
 
             if (e.ColumnIndex == dgvShow.Columns["btnDEL"].Index && e.RowIndex >= 0)
             {
-                MessageBox.Show("luh");
+                
             }
         }
 
@@ -73,6 +84,32 @@ namespace StudentMS_Falcotelo
             frmSecond second = new frmSecond();
             this.Hide();
             second.Show();
+        }
+
+        private void dgvShow_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All
+                    & ~(DataGridViewPaintParts.ContentForeground));
+                var r = e.CellBounds;
+                r.Inflate(-4, -4);
+                e.Graphics.FillRectangle(Brushes.Red, r);
+                e.Paint(e.CellBounds, DataGridViewPaintParts.ContentForeground);
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 1)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All
+                    & ~(DataGridViewPaintParts.ContentForeground));
+                var r = e.CellBounds;
+                r.Inflate(-4, -4);
+                e.Graphics.FillRectangle(Brushes.Blue, r);
+                e.Paint(e.CellBounds, DataGridViewPaintParts.ContentForeground);
+                e.Handled = true;
+            }
         }
     }
 }

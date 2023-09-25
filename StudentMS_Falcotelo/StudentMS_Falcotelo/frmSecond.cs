@@ -64,8 +64,7 @@ namespace StudentMS_Falcotelo
                 buttonDelColumn.UseColumnTextForButtonValue = true;
 
                 var index = this.dgvShow.Rows.Add();
-                this.dgvShow.Rows[index].Cells[0].Value = value;
-                
+                this.dgvShow.Rows[index].Cells[0].Value = value;               
             }
             catch
             {
@@ -81,13 +80,30 @@ namespace StudentMS_Falcotelo
             con.Open();
             SqlCommand cmdAddToStudent = new SqlCommand("insert into tblStudent (first_name, middle_name, last_name, birth_date) values ('"+txtfirst.Text+"','"+txtmid.Text+"','"+txtlast.Text+"','"+dtpbday.Value.Date.ToString("yyyyMMdd") + "')", con);
             cmdAddToStudent.ExecuteNonQuery();
-            SqlCommand cmdAddToSubject = new SqlCommand("insert into tblSubject (subject_name) values ('" + value + "')");
-            cmdAddToSubject.ExecuteNonQuery();
-            SqlCommand cmdAddToCourse = new SqlCommand("insert into tblSubject (subject_name) values ('" + value + "')");
-            cmdAddToCourse.ExecuteNonQuery();
             con.Close();
 
-            MessageBox.Show("Saved");
+            
+        }
+
+        private void dgvShow_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+            if (e.ColumnIndex == 1)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All
+                    & ~(DataGridViewPaintParts.ContentForeground));
+                var r = e.CellBounds;
+                r.Inflate(-4, -4);
+                e.Graphics.FillRectangle(Brushes.Blue, r);
+                e.Paint(e.CellBounds, DataGridViewPaintParts.ContentForeground);
+                e.Handled = true;
+            }
+        }
+
+        private void dgvShow_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

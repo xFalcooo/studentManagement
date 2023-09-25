@@ -17,6 +17,9 @@ namespace StudentMS_Falcotelo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmMain());
+            
         }
+        
     }
+
 }
