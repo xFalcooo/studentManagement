@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DBStudentMS_FalcoteloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DBStudentMS_FalcoteloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblAssignedSubject">
           <Key>
             <PropertyRef Name="assign_no" />
@@ -111,7 +111,8 @@ warning 6002: The table/view 'DBStudentMS_Falcotelo.dbo.vwStudentRecord' does no
             <End Role="tblStudent" EntitySet="tblStudent" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBStudentMS_FalcoteloModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -154,6 +155,15 @@ warning 6002: The table/view 'DBStudentMS_Falcotelo.dbo.vwStudentRecord' does no
           <Property Name="subject_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tblAssignedSubject" Relationship="Self.FK__tblAssign__subje__5165187F" FromRole="tblSubject" ToRole="tblAssignedSubject" />
         </EntityType>
+        <EntityType Name="vwStudentRecord">
+          <Key>
+            <PropertyRef Name="StudentNumber" />
+          </Key>
+          <Property Name="StudentNumber" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalSubject" Type="Int32" />
+        </EntityType>
         <Association Name="FK__tblAssign__stude__5070F446">
           <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="0..1" />
           <End Role="tblAssignedSubject" Type="Self.tblAssignedSubject" Multiplicity="*" />
@@ -195,6 +205,7 @@ warning 6002: The table/view 'DBStudentMS_Falcotelo.dbo.vwStudentRecord' does no
           <EntitySet Name="tblCourse" EntityType="Self.tblCourse" />
           <EntitySet Name="tblStudent" EntityType="Self.tblStudent" />
           <EntitySet Name="tblSubject" EntityType="Self.tblSubject" />
+          <EntitySet Name="vwStudentRecord" EntityType="Self.vwStudentRecord" />
           <AssociationSet Name="FK__tblAssign__stude__5070F446" Association="Self.FK__tblAssign__stude__5070F446">
             <End Role="tblStudent" EntitySet="tblStudent" />
             <End Role="tblAssignedSubject" EntitySet="tblAssignedSubject" />
@@ -207,17 +218,7 @@ warning 6002: The table/view 'DBStudentMS_Falcotelo.dbo.vwStudentRecord' does no
             <End Role="tblCourse" EntitySet="tblCourse" />
             <End Role="tblStudent" EntitySet="tblStudent" />
           </AssociationSet>
-          <EntitySet Name="vwStudentRecord" EntityType="DBStudentMS_FalcoteloModel.vwStudentRecord" />
         </EntityContainer>
-        <EntityType Name="vwStudentRecord">
-          <Key>
-            <PropertyRef Name="StudentNumber" />
-          </Key>
-          <Property Name="StudentNumber" Type="Int32" Nullable="false" />
-          <Property Name="FullName" Type="String" MaxLength="152" FixedLength="false" Unicode="false" />
-          <Property Name="Course" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TotalSubject" Type="Int32" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -264,10 +265,10 @@ warning 6002: The table/view 'DBStudentMS_Falcotelo.dbo.vwStudentRecord' does no
           <EntitySetMapping Name="vwStudentRecord">
             <EntityTypeMapping TypeName="DBStudentMS_FalcoteloModel.vwStudentRecord">
               <MappingFragment StoreEntitySet="vwStudentRecord">
-                <ScalarProperty Name="TotalSubject" ColumnName="TotalSubject" />
-                <ScalarProperty Name="Course" ColumnName="Course" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="StudentNumber" ColumnName="StudentNumber" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="TotalSubject" ColumnName="TotalSubject" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

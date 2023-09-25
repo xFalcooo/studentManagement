@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="99eb28d10770460bad62b0f6f2bb5ac9" Name="Diagram1">
+      <Diagram DiagramId="16ee0af8899b4be39077ad1bb9ee9947" Name="Diagram1">
         <EntityTypeShape EntityType="DBStudentMS_FalcoteloModel.tblAssignedSubject" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DBStudentMS_FalcoteloModel.tblCourse" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBStudentMS_FalcoteloModel.tblStudent" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DBStudentMS_FalcoteloModel.tblSubject" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBStudentMS_FalcoteloModel.vwStudentRecord" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="DBStudentMS_FalcoteloModel.FK__tblAssign__stude__5070F446" ManuallyRouted="false" />
         <AssociationConnector Association="DBStudentMS_FalcoteloModel.FK__tblAssign__subje__5165187F" ManuallyRouted="false" />
         <AssociationConnector Association="DBStudentMS_FalcoteloModel.FK__tblStuden__cours__4D94879B" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="DBStudentMS_FalcoteloModel.vwStudentRecord" Width="1.5" PointX="5.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

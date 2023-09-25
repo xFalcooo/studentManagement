@@ -73,35 +73,35 @@
     <Compile Include="frmThird.Designer.cs">
       <DependentUpon>frmThird.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\studentManagementDB.Context.cs">
+    <Compile Include="Model\DBStudentMS.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>studentManagementDB.Context.tt</DependentUpon>
+      <DependentUpon>DBStudentMS.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\studentManagementDB.cs">
+    <Compile Include="Model\DBStudentMS.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>studentManagementDB.tt</DependentUpon>
+      <DependentUpon>DBStudentMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\studentManagementDB.Designer.cs">
+    <Compile Include="Model\DBStudentMS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>studentManagementDB.edmx</DependentUpon>
+      <DependentUpon>DBStudentMS.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\tblAssignedSubject.cs">
-      <DependentUpon>studentManagementDB.tt</DependentUpon>
+      <DependentUpon>DBStudentMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\tblCourse.cs">
-      <DependentUpon>studentManagementDB.tt</DependentUpon>
+      <DependentUpon>DBStudentMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\tblStudent.cs">
-      <DependentUpon>studentManagementDB.tt</DependentUpon>
+      <DependentUpon>DBStudentMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\tblSubject.cs">
-      <DependentUpon>studentManagementDB.tt</DependentUpon>
+      <DependentUpon>DBStudentMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\vwStudentRecord.cs">
-      <DependentUpon>studentManagementDB.tt</DependentUpon>
+      <DependentUpon>DBStudentMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,12 +123,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Model\studentManagementDB.edmx">
+    <EntityDeploy Include="Model\DBStudentMS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>studentManagementDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>DBStudentMS.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\studentManagementDB.edmx.diagram">
-      <DependentUpon>studentManagementDB.edmx</DependentUpon>
+    <None Include="Model\DBStudentMS.edmx.diagram">
+      <DependentUpon>DBStudentMS.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -148,15 +148,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\studentManagementDB.Context.tt">
+    <Content Include="Model\DBStudentMS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>studentManagementDB.edmx</DependentUpon>
-      <LastGenOutput>studentManagementDB.Context.cs</LastGenOutput>
+      <DependentUpon>DBStudentMS.edmx</DependentUpon>
+      <LastGenOutput>DBStudentMS.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\studentManagementDB.tt">
+    <Content Include="Model\DBStudentMS.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>studentManagementDB.edmx</DependentUpon>
-      <LastGenOutput>studentManagementDB.cs</LastGenOutput>
+      <DependentUpon>DBStudentMS.edmx</DependentUpon>
+      <LastGenOutput>DBStudentMS.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
