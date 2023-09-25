@@ -43,8 +43,9 @@ namespace StudentMS_Falcotelo
             this.label4 = new System.Windows.Forms.Label();
             this.cmbcourse = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAction = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dgvTxtSubjectNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTxtSubjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvBtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@ namespace StudentMS_Falcotelo
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 24);
+            this.label1.Size = new System.Drawing.Size(91, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "First Name";
             // 
@@ -61,34 +62,36 @@ namespace StudentMS_Falcotelo
             // 
             this.dgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.subject,
-            this.btnAction});
+            this.dgvTxtSubjectNumber,
+            this.dgvTxtSubjectName,
+            this.dgvBtnDelete});
             this.dgvShow.Location = new System.Drawing.Point(12, 265);
             this.dgvShow.Name = "dgvShow";
             this.dgvShow.RowHeadersWidth = 51;
             this.dgvShow.RowTemplate.Height = 24;
             this.dgvShow.Size = new System.Drawing.Size(389, 181);
             this.dgvShow.TabIndex = 1;
+            this.dgvShow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShow_CellContentClick);
             // 
             // txtfirst
             // 
             this.txtfirst.Location = new System.Drawing.Point(158, 29);
             this.txtfirst.Name = "txtfirst";
-            this.txtfirst.Size = new System.Drawing.Size(243, 28);
+            this.txtfirst.Size = new System.Drawing.Size(243, 24);
             this.txtfirst.TabIndex = 3;
             // 
             // txtmid
             // 
             this.txtmid.Location = new System.Drawing.Point(158, 63);
             this.txtmid.Name = "txtmid";
-            this.txtmid.Size = new System.Drawing.Size(243, 28);
+            this.txtmid.Size = new System.Drawing.Size(243, 24);
             this.txtmid.TabIndex = 4;
             // 
             // txtlast
             // 
             this.txtlast.Location = new System.Drawing.Point(158, 97);
             this.txtlast.Name = "txtlast";
-            this.txtlast.Size = new System.Drawing.Size(243, 28);
+            this.txtlast.Size = new System.Drawing.Size(243, 24);
             this.txtlast.TabIndex = 5;
             // 
             // label2
@@ -96,7 +99,7 @@ namespace StudentMS_Falcotelo
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 24);
+            this.label2.Size = new System.Drawing.Size(106, 18);
             this.label2.TabIndex = 7;
             this.label2.Text = "Middle Name";
             // 
@@ -105,7 +108,7 @@ namespace StudentMS_Falcotelo
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 24);
+            this.label3.Size = new System.Drawing.Size(89, 18);
             this.label3.TabIndex = 8;
             this.label3.Text = "Last Name";
             // 
@@ -143,7 +146,7 @@ namespace StudentMS_Falcotelo
             // 
             this.dtpbday.Location = new System.Drawing.Point(158, 131);
             this.dtpbday.Name = "dtpbday";
-            this.dtpbday.Size = new System.Drawing.Size(241, 28);
+            this.dtpbday.Size = new System.Drawing.Size(241, 24);
             this.dtpbday.TabIndex = 13;
             // 
             // label4
@@ -151,20 +154,16 @@ namespace StudentMS_Falcotelo
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 136);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 24);
+            this.label4.Size = new System.Drawing.Size(83, 18);
             this.label4.TabIndex = 14;
             this.label4.Text = "Birth Date";
             // 
             // cmbcourse
             // 
             this.cmbcourse.FormattingEnabled = true;
-            this.cmbcourse.Items.AddRange(new object[] {
-            "BSIT",
-            "BSHRM",
-            "BSCS"});
             this.cmbcourse.Location = new System.Drawing.Point(158, 165);
             this.cmbcourse.Name = "cmbcourse";
-            this.cmbcourse.Size = new System.Drawing.Size(241, 30);
+            this.cmbcourse.Size = new System.Drawing.Size(241, 25);
             this.cmbcourse.TabIndex = 15;
             // 
             // label5
@@ -172,27 +171,31 @@ namespace StudentMS_Falcotelo
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 168);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 24);
+            this.label5.Size = new System.Drawing.Size(63, 18);
             this.label5.TabIndex = 16;
             this.label5.Text = "Course";
             // 
-            // subject
+            // dgvTxtSubjectNumber
             // 
-            this.subject.HeaderText = "Subject";
-            this.subject.MinimumWidth = 6;
-            this.subject.Name = "subject";
-            this.subject.Width = 125;
+            this.dgvTxtSubjectNumber.HeaderText = "Number";
+            this.dgvTxtSubjectNumber.Name = "dgvTxtSubjectNumber";
+            this.dgvTxtSubjectNumber.Visible = false;
             // 
-            // btnAction
+            // dgvTxtSubjectName
             // 
-            this.btnAction.HeaderText = "Action";
-            this.btnAction.MinimumWidth = 6;
-            this.btnAction.Name = "btnAction";
-            this.btnAction.Width = 125;
+            this.dgvTxtSubjectName.HeaderText = "Subject Name";
+            this.dgvTxtSubjectName.Name = "dgvTxtSubjectName";
+            // 
+            // dgvBtnDelete
+            // 
+            this.dgvBtnDelete.HeaderText = "Action";
+            this.dgvBtnDelete.Name = "dgvBtnDelete";
+            this.dgvBtnDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBtnDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmSecond
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(411, 504);
             this.Controls.Add(this.label5);
@@ -238,7 +241,8 @@ namespace StudentMS_Falcotelo
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbcourse;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subject;
-        private System.Windows.Forms.DataGridViewButtonColumn btnAction;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtSubjectNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtSubjectName;
+        private System.Windows.Forms.DataGridViewButtonColumn dgvBtnDelete;
     }
 }

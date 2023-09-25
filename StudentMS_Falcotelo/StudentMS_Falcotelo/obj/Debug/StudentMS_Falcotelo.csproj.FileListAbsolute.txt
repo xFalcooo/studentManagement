@@ -10,3 +10,21 @@ C:\Users\Benedict\OneDrive\Desktop\My Project\StudentMS_Falcotelo\StudentMS_Falc
 C:\Users\Benedict\OneDrive\Desktop\My Project\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.pdb
 C:\Users\Benedict\OneDrive\Desktop\My Project\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.frmSecond.resources
 C:\Users\Benedict\OneDrive\Desktop\My Project\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.frmThird.resources
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\bin\Debug\StudentMS_Falcotelo.exe.config
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\bin\Debug\StudentMS_Falcotelo.exe
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\bin\Debug\StudentMS_Falcotelo.pdb
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.csproj.AssemblyReference.cache
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.csproj.SuggestedBindingRedirects.cache
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.frmMain.resources
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.frmSecond.resources
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.frmThird.resources
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.Properties.Resources.resources
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.csproj.GenerateResource.cache
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.csproj.CoreCompileInputs.cache
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.exe
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.pdb
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\bin\Debug\EntityFramework.dll
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\bin\Debug\EntityFramework.xml
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cyrus\Documents\Github\studentManagement\StudentMS_Falcotelo\StudentMS_Falcotelo\obj\Debug\StudentMS_Falcotelo.csproj.CopyComplete
