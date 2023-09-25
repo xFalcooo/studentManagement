@@ -8,73 +8,57 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using StudentMS_Falcotelo.Model;
+
 namespace StudentMS_Falcotelo
 {
     public partial class frmThird : Form
     {
-        string connectionString = "Data Source=BENEDICK\\SQLEXPRESS;Initial Catalog=DBStudentMS_Falcotelo;Integrated Security=True";
+        DBStudentMS_FalcoteloEntities db = new DBStudentMS_FalcoteloEntities();
+
+        private frmSecond secondForm;
 
         public frmThird()
         {
             InitializeComponent();
-            subjectList();
-            addButtons();
         }
-        private void subjectList()
+        // Set Form1 reference
+        public void SetForm2(frmSecond form2)
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-            SqlCommand cmdSubject = new SqlCommand("select subject_name as [Subject Name] from tblSubject", con);
-            cmdSubject.ExecuteNonQuery();
-            SqlDataAdapter adSubject = new SqlDataAdapter(cmdSubject);
-            DataTable dtSubject = new DataTable();
-            adSubject.Fill(dtSubject);
-            dgvShow.DataSource = dtSubject;
-        }
-        private void addButtons()
-        {
-            DataGridViewButtonColumn buttonSelColumn = new DataGridViewButtonColumn();
-            buttonSelColumn.Name = "btnSEL";
-            buttonSelColumn.HeaderText = "Action";
-            buttonSelColumn.Text = "Select";
-            buttonSelColumn.UseColumnTextForButtonValue = true;
-            dgvShow.Columns.Add(buttonSelColumn);
+            this.secondForm = form2;
         }
 
         private void frmThird_Load(object sender, EventArgs e)
         {
             dgvShow.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvShow.AllowUserToAddRows = false;
+
+            db.tblSubject.ToList().ForEach(o =>
+            {
+                var index = dgvShow.Rows.Add();
+                dgvShow.Rows[index].Cells["dgvTxtSubjectNumber"].Value = o.subject_no;
+                dgvShow.Rows[index].Cells["dgvTxtSubjectName"].Value = o.subject_name;
+            });
         }
 
         private void dgvShow_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgvShow.Columns["btnSEL"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == dgvShow.Columns["dgvBtnSelect"].Index && e.RowIndex >= 0)
             {
                 int selectedrowindex = dgvShow.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dgvShow.Rows[selectedrowindex];
-                string cellValue = Convert.ToString(selectedRow.Cells[1].Value);
-       
-                frmSecond second = new frmSecond();
-                second.value = cellValue;
-                this.Hide();
-                second.Show();
-            }
-        }
+                int number = Convert.ToInt32(selectedRow.Cells["dgvTxtSubjectNumber"].Value);
+                string name = Convert.ToString(selectedRow.Cells["dgvTxtSubjectName"].Value);
+                var selectedSubject = new tblSubject
+                {
+                    subject_no = number,
+                    subject_name = name,
+                };
 
-        private void dgvShow_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            
-            if (e.ColumnIndex == 0)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All
-                    & ~(DataGridViewPaintParts.ContentForeground));
-                var r = e.CellBounds;
-                r.Inflate(-4, -4);
-                e.Graphics.FillRectangle(Brushes.Blue, r);
-                e.Paint(e.CellBounds, DataGridViewPaintParts.ContentForeground);
-                e.Handled = true;
+                secondForm.addSubject(selectedSubject);
+                this.Hide();
+                secondForm.ShowForm2();
             }
-        }
+        } 
     }
 }

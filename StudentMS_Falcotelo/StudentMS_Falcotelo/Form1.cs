@@ -8,35 +8,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using StudentMS_Falcotelo.Model;
+using System.Data.Entity;
 
 namespace StudentMS_Falcotelo
 {
     public partial class frmMain : Form
     {
-        public string connectionString = "Data Source=BENEDICK\\SQLEXPRESS;Initial Catalog=DBStudentMS_Falcotelo;Integrated Security=True";
+        DBStudentMS_FalcoteloEntities db = new DBStudentMS_FalcoteloEntities();
 
         public frmMain()
         {
             InitializeComponent();
-            refresher();
-            addButton();
         }
-        private void refresher()
+
+        private void studentRecord()
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-            SqlCommand cmdShow = new SqlCommand("select student_no AS [No.], concat(first_name, ' ', last_name) as [Student Name], course_name as Course, subject_name as Subject from tblStudent, tblCourse, tblSubject;", con);
-            cmdShow.ExecuteNonQuery();
-            SqlDataAdapter daShow = new SqlDataAdapter(cmdShow);
-            DataTable dtShow = new DataTable();
-            daShow.Fill(dtShow);
-            dgvShow.DataSource = dtShow;
+            dgvShow.DataSource = null;
+            dgvShow.Columns.Clear();
+            var recordsList = db.vwStudentRecord.ToList();
+            dgvShow.DataSource = recordsList;
+
+            addButton();
         }
         private void addButton()
         {
             DataGridViewButtonColumn buttonDelColumn = new DataGridViewButtonColumn();
             buttonDelColumn.Name = "btnDEL";
-            buttonDelColumn.HeaderText = "Action";
+            buttonDelColumn.HeaderText = "Delete";
             buttonDelColumn.Text = "DELETE";
             buttonDelColumn.UseColumnTextForButtonValue = true;
             buttonDelColumn.FlatStyle = FlatStyle.Popup;
@@ -44,7 +43,7 @@ namespace StudentMS_Falcotelo
 
             DataGridViewButtonColumn buttonUpdColumn = new DataGridViewButtonColumn();
             buttonUpdColumn.Name = "btnUPD";
-            buttonUpdColumn.HeaderText = "Actions";
+            buttonUpdColumn.HeaderText = "Update";
             buttonUpdColumn.Text = "UPDATE";
             buttonUpdColumn.UseColumnTextForButtonValue = true;
             buttonUpdColumn.FlatStyle = FlatStyle.Popup;
@@ -55,27 +54,51 @@ namespace StudentMS_Falcotelo
         {
             dgvShow.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvShow.AllowUserToAddRows = false;
-            
+            studentRecord();
         }
 
         private void dgvShow_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvShow.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            using (db = new DBStudentMS_FalcoteloEntities())
             {
-                MessageBox.Show(dgvShow.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                string btnUpdValue = dgvShow.Rows[e.RowIndex].Cells[1].Value.ToString();
-                string idValue = dgvShow.Rows[e.RowIndex].Cells[2].Value.ToString();
-                string btnDelValue = dgvShow.Rows[e.RowIndex].Cells[0].Value.ToString();
-            }
+                int selectedrowindex = dgvShow.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgvShow.Rows[selectedrowindex];
+                int studentNo = Convert.ToInt32(selectedRow.Cells[0].Value);
 
-            if (e.ColumnIndex == dgvShow.Columns["btnUPD"].Index && e.RowIndex >= 0)
-            {
-                MessageBox.Show("");
-            }
+                // Step 1: Query the record to delete
+                var selectedStudent = db.tblStudent.Where(o => o.student_no == studentNo).FirstOrDefault(); // Replace YourTable and Id with your table and primary key
+                var selectedAssignedSubject = db.tblAssignedSubject.Where(o => o.student_no == studentNo).ToList(); // Replace YourTable and Id with your table and primary key
 
-            if (e.ColumnIndex == dgvShow.Columns["btnDEL"].Index && e.RowIndex >= 0)
-            {
-                
+                var listOfSubjectNo = selectedAssignedSubject.Select(x => x.subject_no ?? 0).ToList();
+                var selectedSubject = db.tblSubject.Where(o => listOfSubjectNo.Contains(o.subject_no)).ToList();
+                if (selectedStudent != null)
+                {
+                    if (e.ColumnIndex == dgvShow.Columns["btnUPD"].Index && e.RowIndex >= 0)
+                    {
+                        frmSecond second = new frmSecond();
+                        second.recordStudent = selectedStudent;
+                        second.recordSubject.AddRange(selectedSubject);
+                        this.Hide();
+                        second.Show();
+                    }
+
+                    if (e.ColumnIndex == dgvShow.Columns["btnDEL"].Index && e.RowIndex >= 0)
+                    {
+                        // Step 2: Remove the record from the DbContext
+                        db.tblStudent.Remove(selectedStudent);
+                        db.tblAssignedSubject.RemoveRange(selectedAssignedSubject);
+
+                        MessageBox.Show("Student Record deleted successfully.");
+                    }
+
+                    // Step 3: Call SaveChanges to commit the deletion to the database
+                    db.SaveChanges();
+                    studentRecord();
+                }
+                else
+                {
+                    Console.WriteLine("Record not found.");
+                }
             }
         }
 

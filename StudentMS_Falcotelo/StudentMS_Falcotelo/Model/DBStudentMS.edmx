@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBStudentMS_FalcoteloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAssignedSubject">
+          <Key>
+            <PropertyRef Name="assign_no" />
+          </Key>
+          <Property Name="assign_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="student_no" Type="int" />
+          <Property Name="subject_no" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCourse">
+          <Key>
+            <PropertyRef Name="course_id" />
+          </Key>
+          <Property Name="course_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="course_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblStudent">
+          <Key>
+            <PropertyRef Name="student_no" />
+          </Key>
+          <Property Name="student_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" />
+          <Property Name="middle_name" Type="varchar" MaxLength="50" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" />
+          <Property Name="birth_date" Type="date" />
+          <Property Name="course_id" Type="int" />
+        </EntityType>
+        <EntityType Name="tblSubject">
+          <Key>
+            <PropertyRef Name="subject_no" />
+          </Key>
+          <Property Name="subject_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subject_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DBStudentMS_Falcotelo.dbo.vwStudentRecord' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwStudentRecord">
+          <Key>
+            <PropertyRef Name="StudentNumber" />
+          </Key>
+          <Property Name="StudentNumber" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="152" />
+          <Property Name="Course" Type="varchar" MaxLength="50" />
+          <Property Name="TotalSubject" Type="int" />
+        </EntityType>
+        <Association Name="FK__tblAssign__stude__5070F446">
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="0..1" />
+          <End Role="tblAssignedSubject" Type="Self.tblAssignedSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudent">
+              <PropertyRef Name="student_no" />
+            </Principal>
+            <Dependent Role="tblAssignedSubject">
+              <PropertyRef Name="student_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblAssign__subje__5165187F">
+          <End Role="tblSubject" Type="Self.tblSubject" Multiplicity="0..1" />
+          <End Role="tblAssignedSubject" Type="Self.tblAssignedSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSubject">
+              <PropertyRef Name="subject_no" />
+            </Principal>
+            <Dependent Role="tblAssignedSubject">
+              <PropertyRef Name="subject_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblStuden__cours__4D94879B">
+          <End Role="tblCourse" Type="Self.tblCourse" Multiplicity="0..1" />
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCourse">
+              <PropertyRef Name="course_id" />
+            </Principal>
+            <Dependent Role="tblStudent">
+              <PropertyRef Name="course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBStudentMS_FalcoteloModelStoreContainer">
+          <EntitySet Name="tblAssignedSubject" EntityType="Self.tblAssignedSubject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCourse" EntityType="Self.tblCourse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStudent" EntityType="Self.tblStudent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSubject" EntityType="Self.tblSubject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vwStudentRecord" EntityType="Self.vwStudentRecord" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwStudentRecord].[StudentNumber] AS [StudentNumber], 
+    [vwStudentRecord].[FullName] AS [FullName], 
+    [vwStudentRecord].[Course] AS [Course], 
+    [vwStudentRecord].[TotalSubject] AS [TotalSubject]
+    FROM [dbo].[vwStudentRecord] AS [vwStudentRecord]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__tblAssign__stude__5070F446" Association="Self.FK__tblAssign__stude__5070F446">
+            <End Role="tblStudent" EntitySet="tblStudent" />
+            <End Role="tblAssignedSubject" EntitySet="tblAssignedSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblAssign__subje__5165187F" Association="Self.FK__tblAssign__subje__5165187F">
+            <End Role="tblSubject" EntitySet="tblSubject" />
+            <End Role="tblAssignedSubject" EntitySet="tblAssignedSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblStuden__cours__4D94879B" Association="Self.FK__tblStuden__cours__4D94879B">
+            <End Role="tblCourse" EntitySet="tblCourse" />
+            <End Role="tblStudent" EntitySet="tblStudent" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBStudentMS_FalcoteloModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAssignedSubject">
+          <Key>
+            <PropertyRef Name="assign_no" />
+          </Key>
+          <Property Name="assign_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="student_no" Type="Int32" />
+          <Property Name="subject_no" Type="Int32" />
+          <NavigationProperty Name="tblStudent" Relationship="Self.FK__tblAssign__stude__5070F446" FromRole="tblAssignedSubject" ToRole="tblStudent" />
+          <NavigationProperty Name="tblSubject" Relationship="Self.FK__tblAssign__subje__5165187F" FromRole="tblAssignedSubject" ToRole="tblSubject" />
+        </EntityType>
+        <EntityType Name="tblCourse">
+          <Key>
+            <PropertyRef Name="course_id" />
+          </Key>
+          <Property Name="course_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="course_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblStudent" Relationship="Self.FK__tblStuden__cours__4D94879B" FromRole="tblCourse" ToRole="tblStudent" />
+        </EntityType>
+        <EntityType Name="tblStudent">
+          <Key>
+            <PropertyRef Name="student_no" />
+          </Key>
+          <Property Name="student_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="middle_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="birth_date" Type="DateTime" Precision="0" />
+          <Property Name="course_id" Type="Int32" />
+          <NavigationProperty Name="tblAssignedSubject" Relationship="Self.FK__tblAssign__stude__5070F446" FromRole="tblStudent" ToRole="tblAssignedSubject" />
+          <NavigationProperty Name="tblCourse" Relationship="Self.FK__tblStuden__cours__4D94879B" FromRole="tblStudent" ToRole="tblCourse" />
+        </EntityType>
+        <EntityType Name="tblSubject">
+          <Key>
+            <PropertyRef Name="subject_no" />
+          </Key>
+          <Property Name="subject_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subject_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblAssignedSubject" Relationship="Self.FK__tblAssign__subje__5165187F" FromRole="tblSubject" ToRole="tblAssignedSubject" />
+        </EntityType>
+        <EntityType Name="vwStudentRecord">
+          <Key>
+            <PropertyRef Name="StudentNumber" />
+          </Key>
+          <Property Name="StudentNumber" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalSubject" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__tblAssign__stude__5070F446">
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="0..1" />
+          <End Role="tblAssignedSubject" Type="Self.tblAssignedSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudent">
+              <PropertyRef Name="student_no" />
+            </Principal>
+            <Dependent Role="tblAssignedSubject">
+              <PropertyRef Name="student_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblAssign__subje__5165187F">
+          <End Role="tblSubject" Type="Self.tblSubject" Multiplicity="0..1" />
+          <End Role="tblAssignedSubject" Type="Self.tblAssignedSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSubject">
+              <PropertyRef Name="subject_no" />
+            </Principal>
+            <Dependent Role="tblAssignedSubject">
+              <PropertyRef Name="subject_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblStuden__cours__4D94879B">
+          <End Role="tblCourse" Type="Self.tblCourse" Multiplicity="0..1" />
+          <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCourse">
+              <PropertyRef Name="course_id" />
+            </Principal>
+            <Dependent Role="tblStudent">
+              <PropertyRef Name="course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBStudentMS_FalcoteloEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAssignedSubject" EntityType="Self.tblAssignedSubject" />
+          <EntitySet Name="tblCourse" EntityType="Self.tblCourse" />
+          <EntitySet Name="tblStudent" EntityType="Self.tblStudent" />
+          <EntitySet Name="tblSubject" EntityType="Self.tblSubject" />
+          <EntitySet Name="vwStudentRecord" EntityType="Self.vwStudentRecord" />
+          <AssociationSet Name="FK__tblAssign__stude__5070F446" Association="Self.FK__tblAssign__stude__5070F446">
+            <End Role="tblStudent" EntitySet="tblStudent" />
+            <End Role="tblAssignedSubject" EntitySet="tblAssignedSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblAssign__subje__5165187F" Association="Self.FK__tblAssign__subje__5165187F">
+            <End Role="tblSubject" EntitySet="tblSubject" />
+            <End Role="tblAssignedSubject" EntitySet="tblAssignedSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblStuden__cours__4D94879B" Association="Self.FK__tblStuden__cours__4D94879B">
+            <End Role="tblCourse" EntitySet="tblCourse" />
+            <End Role="tblStudent" EntitySet="tblStudent" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBStudentMS_FalcoteloModelStoreContainer" CdmEntityContainer="DBStudentMS_FalcoteloEntities">
+          <EntitySetMapping Name="tblAssignedSubject">
+            <EntityTypeMapping TypeName="DBStudentMS_FalcoteloModel.tblAssignedSubject">
+              <MappingFragment StoreEntitySet="tblAssignedSubject">
+                <ScalarProperty Name="assign_no" ColumnName="assign_no" />
+                <ScalarProperty Name="student_no" ColumnName="student_no" />
+                <ScalarProperty Name="subject_no" ColumnName="subject_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCourse">
+            <EntityTypeMapping TypeName="DBStudentMS_FalcoteloModel.tblCourse">
+              <MappingFragment StoreEntitySet="tblCourse">
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="course_name" ColumnName="course_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStudent">
+            <EntityTypeMapping TypeName="DBStudentMS_FalcoteloModel.tblStudent">
+              <MappingFragment StoreEntitySet="tblStudent">
+                <ScalarProperty Name="student_no" ColumnName="student_no" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSubject">
+            <EntityTypeMapping TypeName="DBStudentMS_FalcoteloModel.tblSubject">
+              <MappingFragment StoreEntitySet="tblSubject">
+                <ScalarProperty Name="subject_no" ColumnName="subject_no" />
+                <ScalarProperty Name="subject_name" ColumnName="subject_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwStudentRecord">
+            <EntityTypeMapping TypeName="DBStudentMS_FalcoteloModel.vwStudentRecord">
+              <MappingFragment StoreEntitySet="vwStudentRecord">
+                <ScalarProperty Name="StudentNumber" ColumnName="StudentNumber" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="TotalSubject" ColumnName="TotalSubject" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

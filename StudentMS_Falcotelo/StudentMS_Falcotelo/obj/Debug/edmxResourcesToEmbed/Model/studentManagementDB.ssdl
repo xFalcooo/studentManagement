@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBStudentMS_FalcoteloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblAssignedSubject">
+    <Key>
+      <PropertyRef Name="assign_no" />
+    </Key>
+    <Property Name="assign_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="student_no" Type="int" />
+    <Property Name="subject_no" Type="int" />
+  </EntityType>
+  <EntityType Name="tblCourse">
+    <Key>
+      <PropertyRef Name="course_id" />
+    </Key>
+    <Property Name="course_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="course_name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblStudent">
+    <Key>
+      <PropertyRef Name="student_no" />
+    </Key>
+    <Property Name="student_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="first_name" Type="varchar" MaxLength="50" />
+    <Property Name="middle_name" Type="varchar" MaxLength="50" />
+    <Property Name="last_name" Type="varchar" MaxLength="50" />
+    <Property Name="birth_date" Type="date" />
+    <Property Name="course_id" Type="int" />
+  </EntityType>
+  <EntityType Name="tblSubject">
+    <Key>
+      <PropertyRef Name="subject_no" />
+    </Key>
+    <Property Name="subject_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="subject_name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBStudentMS_Falcotelo.dbo.vwStudentRecord' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwStudentRecord">
+    <Key>
+      <PropertyRef Name="StudentNumber" />
+    </Key>
+    <Property Name="StudentNumber" Type="int" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="152" />
+    <Property Name="Course" Type="varchar" MaxLength="50" />
+    <Property Name="TotalSubject" Type="int" />
+  </EntityType>
+  <Association Name="FK__tblAssign__stude__5070F446">
+    <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="0..1" />
+    <End Role="tblAssignedSubject" Type="Self.tblAssignedSubject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStudent">
+        <PropertyRef Name="student_no" />
+      </Principal>
+      <Dependent Role="tblAssignedSubject">
+        <PropertyRef Name="student_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblAssign__subje__5165187F">
+    <End Role="tblSubject" Type="Self.tblSubject" Multiplicity="0..1" />
+    <End Role="tblAssignedSubject" Type="Self.tblAssignedSubject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSubject">
+        <PropertyRef Name="subject_no" />
+      </Principal>
+      <Dependent Role="tblAssignedSubject">
+        <PropertyRef Name="subject_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblStuden__cours__4D94879B">
+    <End Role="tblCourse" Type="Self.tblCourse" Multiplicity="0..1" />
+    <End Role="tblStudent" Type="Self.tblStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCourse">
+        <PropertyRef Name="course_id" />
+      </Principal>
+      <Dependent Role="tblStudent">
+        <PropertyRef Name="course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBStudentMS_FalcoteloModelStoreContainer">
+    <EntitySet Name="tblAssignedSubject" EntityType="Self.tblAssignedSubject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCourse" EntityType="Self.tblCourse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStudent" EntityType="Self.tblStudent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSubject" EntityType="Self.tblSubject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vwStudentRecord" EntityType="Self.vwStudentRecord" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwStudentRecord].[StudentNumber] AS [StudentNumber], 
+    [vwStudentRecord].[FullName] AS [FullName], 
+    [vwStudentRecord].[Course] AS [Course], 
+    [vwStudentRecord].[TotalSubject] AS [TotalSubject]
+    FROM [dbo].[vwStudentRecord] AS [vwStudentRecord]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__tblAssign__stude__5070F446" Association="Self.FK__tblAssign__stude__5070F446">
+      <End Role="tblStudent" EntitySet="tblStudent" />
+      <End Role="tblAssignedSubject" EntitySet="tblAssignedSubject" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblAssign__subje__5165187F" Association="Self.FK__tblAssign__subje__5165187F">
+      <End Role="tblSubject" EntitySet="tblSubject" />
+      <End Role="tblAssignedSubject" EntitySet="tblAssignedSubject" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblStuden__cours__4D94879B" Association="Self.FK__tblStuden__cours__4D94879B">
+      <End Role="tblCourse" EntitySet="tblCourse" />
+      <End Role="tblStudent" EntitySet="tblStudent" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

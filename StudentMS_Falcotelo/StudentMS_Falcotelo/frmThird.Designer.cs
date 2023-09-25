@@ -36,6 +36,9 @@ namespace StudentMS_Falcotelo
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvShow = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgvTxtSubjectNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTxtSubjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvBtnSelect = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,13 +93,35 @@ namespace StudentMS_Falcotelo
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(8, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 24);
+            this.label1.Size = new System.Drawing.Size(73, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "Subjects";
             // 
+            // dgvTxtSubjectNumber
+            // 
+            this.dgvTxtSubjectNumber.HeaderText = "No.";
+            this.dgvTxtSubjectNumber.Name = "dgvTxtSubjectNumber";
+            this.dgvTxtSubjectNumber.ReadOnly = true;
+            this.dgvTxtSubjectNumber.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTxtSubjectNumber.Visible = false;
+            // 
+            // dgvTxtSubjectName
+            // 
+            this.dgvTxtSubjectName.HeaderText = "Subject Name";
+            this.dgvTxtSubjectName.Name = "dgvTxtSubjectName";
+            this.dgvTxtSubjectName.ReadOnly = true;
+            // 
+            // dgvBtnSelect
+            // 
+            this.dgvBtnSelect.HeaderText = "Action";
+            this.dgvBtnSelect.Name = "dgvBtnSelect";
+            this.dgvBtnSelect.ReadOnly = true;
+            this.dgvBtnSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBtnSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // frmThird
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(489, 342);
@@ -119,5 +144,8 @@ namespace StudentMS_Falcotelo
 
         private System.Windows.Forms.DataGridView dgvShow;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtSubjectNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTxtSubjectName;
+        private System.Windows.Forms.DataGridViewButtonColumn dgvBtnSelect;
     }
 }
