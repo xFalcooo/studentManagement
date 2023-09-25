@@ -113,7 +113,7 @@ namespace StudentMS_Falcotelo
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
-            if (e.ColumnIndex == 0)
+            if (e.ColumnIndex == 4)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All
                     & ~(DataGridViewPaintParts.ContentForeground));
@@ -123,7 +123,7 @@ namespace StudentMS_Falcotelo
                 e.Paint(e.CellBounds, DataGridViewPaintParts.ContentForeground);
                 e.Handled = true;
             }
-            if (e.ColumnIndex == 1)
+            if (e.ColumnIndex == 5)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All
                     & ~(DataGridViewPaintParts.ContentForeground));

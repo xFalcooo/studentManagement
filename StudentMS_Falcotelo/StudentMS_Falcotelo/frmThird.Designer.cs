@@ -58,6 +58,10 @@ namespace StudentMS_Falcotelo
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvShow.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvShow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvTxtSubjectNumber,
+            this.dgvTxtSubjectName,
+            this.dgvBtnSelect});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.SkyBlue;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -86,42 +90,41 @@ namespace StudentMS_Falcotelo
             this.dgvShow.Size = new System.Drawing.Size(465, 251);
             this.dgvShow.TabIndex = 0;
             this.dgvShow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShow_CellContentClick);
-            this.dgvShow.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvShow_CellPainting);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(8, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 18);
+            this.label1.Size = new System.Drawing.Size(90, 24);
             this.label1.TabIndex = 1;
             this.label1.Text = "Subjects";
             // 
             // dgvTxtSubjectNumber
             // 
             this.dgvTxtSubjectNumber.HeaderText = "No.";
+            this.dgvTxtSubjectNumber.MinimumWidth = 6;
             this.dgvTxtSubjectNumber.Name = "dgvTxtSubjectNumber";
-            this.dgvTxtSubjectNumber.ReadOnly = true;
-            this.dgvTxtSubjectNumber.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvTxtSubjectNumber.Visible = false;
+            this.dgvTxtSubjectNumber.Width = 125;
             // 
             // dgvTxtSubjectName
             // 
             this.dgvTxtSubjectName.HeaderText = "Subject Name";
+            this.dgvTxtSubjectName.MinimumWidth = 6;
             this.dgvTxtSubjectName.Name = "dgvTxtSubjectName";
-            this.dgvTxtSubjectName.ReadOnly = true;
+            this.dgvTxtSubjectName.Width = 125;
             // 
             // dgvBtnSelect
             // 
             this.dgvBtnSelect.HeaderText = "Action";
+            this.dgvBtnSelect.MinimumWidth = 6;
             this.dgvBtnSelect.Name = "dgvBtnSelect";
-            this.dgvBtnSelect.ReadOnly = true;
-            this.dgvBtnSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBtnSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgvBtnSelect.Width = 125;
             // 
             // frmThird
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(489, 342);

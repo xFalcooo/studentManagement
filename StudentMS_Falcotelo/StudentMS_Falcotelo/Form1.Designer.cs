@@ -89,7 +89,7 @@ namespace StudentMS_Falcotelo
             this.dgvShow.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvShow.RowTemplate.Height = 24;
             this.dgvShow.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dgvShow.Size = new System.Drawing.Size(576, 421);
+            this.dgvShow.Size = new System.Drawing.Size(902, 421);
             this.dgvShow.TabIndex = 0;
             this.dgvShow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShow_CellContentClick);
             this.dgvShow.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvShow_CellPainting);
@@ -99,7 +99,7 @@ namespace StudentMS_Falcotelo
             this.btnAdd.BackColor = System.Drawing.Color.Blue;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(489, 12);
+            this.btnAdd.Location = new System.Drawing.Point(819, 12);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(95, 29);
             this.btnAdd.TabIndex = 1;
@@ -109,11 +109,11 @@ namespace StudentMS_Falcotelo
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(596, 480);
+            this.ClientSize = new System.Drawing.Size(926, 480);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvShow);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -58,7 +58,7 @@ namespace StudentMS_Falcotelo
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 18);
+            this.label1.Size = new System.Drawing.Size(111, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "First Name";
             // 
@@ -82,8 +82,9 @@ namespace StudentMS_Falcotelo
             this.dgvShow.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.subject,
-            this.btnAction});
+            this.dgvTxtSubjectNumber,
+            this.dgvTxtSubjectName,
+            this.dgvBtnDelete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.SkyBlue;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,27 +111,26 @@ namespace StudentMS_Falcotelo
             this.dgvShow.Size = new System.Drawing.Size(389, 181);
             this.dgvShow.TabIndex = 1;
             this.dgvShow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShow_CellContentClick);
-            this.dgvShow.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvShow_CellPainting);
             // 
             // txtfirst
             // 
             this.txtfirst.Location = new System.Drawing.Point(158, 29);
             this.txtfirst.Name = "txtfirst";
-            this.txtfirst.Size = new System.Drawing.Size(243, 24);
+            this.txtfirst.Size = new System.Drawing.Size(243, 28);
             this.txtfirst.TabIndex = 3;
             // 
             // txtmid
             // 
             this.txtmid.Location = new System.Drawing.Point(158, 63);
             this.txtmid.Name = "txtmid";
-            this.txtmid.Size = new System.Drawing.Size(243, 24);
+            this.txtmid.Size = new System.Drawing.Size(243, 28);
             this.txtmid.TabIndex = 4;
             // 
             // txtlast
             // 
             this.txtlast.Location = new System.Drawing.Point(158, 97);
             this.txtlast.Name = "txtlast";
-            this.txtlast.Size = new System.Drawing.Size(243, 24);
+            this.txtlast.Size = new System.Drawing.Size(243, 28);
             this.txtlast.TabIndex = 5;
             // 
             // label2
@@ -138,7 +138,7 @@ namespace StudentMS_Falcotelo
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 18);
+            this.label2.Size = new System.Drawing.Size(134, 24);
             this.label2.TabIndex = 7;
             this.label2.Text = "Middle Name";
             // 
@@ -147,7 +147,7 @@ namespace StudentMS_Falcotelo
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 18);
+            this.label3.Size = new System.Drawing.Size(108, 24);
             this.label3.TabIndex = 8;
             this.label3.Text = "Last Name";
             // 
@@ -194,7 +194,7 @@ namespace StudentMS_Falcotelo
             // 
             this.dtpbday.Location = new System.Drawing.Point(158, 131);
             this.dtpbday.Name = "dtpbday";
-            this.dtpbday.Size = new System.Drawing.Size(241, 24);
+            this.dtpbday.Size = new System.Drawing.Size(241, 28);
             this.dtpbday.TabIndex = 13;
             // 
             // label4
@@ -202,7 +202,7 @@ namespace StudentMS_Falcotelo
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 136);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 18);
+            this.label4.Size = new System.Drawing.Size(100, 24);
             this.label4.TabIndex = 14;
             this.label4.Text = "Birth Date";
             // 
@@ -211,7 +211,7 @@ namespace StudentMS_Falcotelo
             this.cmbcourse.FormattingEnabled = true;
             this.cmbcourse.Location = new System.Drawing.Point(158, 165);
             this.cmbcourse.Name = "cmbcourse";
-            this.cmbcourse.Size = new System.Drawing.Size(241, 25);
+            this.cmbcourse.Size = new System.Drawing.Size(241, 30);
             this.cmbcourse.TabIndex = 15;
             // 
             // label5
@@ -219,27 +219,35 @@ namespace StudentMS_Falcotelo
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 168);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 18);
+            this.label5.Size = new System.Drawing.Size(77, 24);
             this.label5.TabIndex = 16;
             this.label5.Text = "Course";
             // 
             // dgvTxtSubjectNumber
             // 
-            this.subject.HeaderText = "Subject Name";
-            this.subject.MinimumWidth = 6;
-            this.subject.Name = "subject";
-            this.subject.Width = 150;
+            this.dgvTxtSubjectNumber.HeaderText = "No.";
+            this.dgvTxtSubjectNumber.MinimumWidth = 6;
+            this.dgvTxtSubjectNumber.Name = "dgvTxtSubjectNumber";
+            this.dgvTxtSubjectNumber.Visible = false;
+            this.dgvTxtSubjectNumber.Width = 125;
             // 
             // dgvTxtSubjectName
             // 
-            this.btnAction.HeaderText = "Action";
-            this.btnAction.MinimumWidth = 6;
-            this.btnAction.Name = "btnAction";
-            this.btnAction.Width = 150;
+            this.dgvTxtSubjectName.HeaderText = "Subject Name";
+            this.dgvTxtSubjectName.MinimumWidth = 6;
+            this.dgvTxtSubjectName.Name = "dgvTxtSubjectName";
+            this.dgvTxtSubjectName.Width = 125;
+            // 
+            // dgvBtnDelete
+            // 
+            this.dgvBtnDelete.HeaderText = "Action";
+            this.dgvBtnDelete.MinimumWidth = 6;
+            this.dgvBtnDelete.Name = "dgvBtnDelete";
+            this.dgvBtnDelete.Width = 125;
             // 
             // frmSecond
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;

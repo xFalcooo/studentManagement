@@ -177,7 +177,7 @@ namespace StudentMS_Falcotelo
 
         private void dgvShow_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
             if (e.ColumnIndex == dgvShow.Columns["dgvBtnDelete"].Index && e.RowIndex >= 0)
             {
                 int selectedrowindex = dgvShow.SelectedCells[0].RowIndex;
