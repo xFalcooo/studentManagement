@@ -74,8 +74,6 @@ namespace StudentMS_Falcotelo
                     if (e.ColumnIndex == dgvShow.Columns["btnUPD"].Index && e.RowIndex >= 0)
                     {
                         frmSecond second = new frmSecond();
-                        second.recordStudent = new tblStudent();
-                        second.recordSubject = new List<tblSubject>();
                         second.recordStudent = selectedStudent;
                         second.recordSubject.AddRange(selectedSubject);
                         this.Hide();

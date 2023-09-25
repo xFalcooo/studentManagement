@@ -25,6 +25,8 @@ namespace StudentMS_Falcotelo
         public frmSecond()
         {
             InitializeComponent();
+            recordStudent = new tblStudent();
+            recordSubject = new List<tblSubject>();
         }
 
         private void listCourse()
@@ -37,6 +39,7 @@ namespace StudentMS_Falcotelo
         private void loadStudentSubject()
         {
             dgvShow.Rows.Clear();
+
             recordSubject.ForEach(o =>
             {
                 var index = dgvShow.Rows.Add();
@@ -80,7 +83,7 @@ namespace StudentMS_Falcotelo
             txtmid.Text = recordStudent?.middle_name;
             txtlast.Text = recordStudent?.last_name;
             dtpbday.Value = (DateTime)(recordStudent?.birth_date ?? DateTime.Today);
-            cmbcourse.SelectedValue = recordStudent?.course_id;
+            cmbcourse.SelectedValue = recordStudent?.course_id ?? 1;
 
             loadStudentSubject();
         }
